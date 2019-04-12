@@ -15,9 +15,9 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
-public class example extends Application {
+public class farming extends Application {
 
-	
+    
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Smart Farming");
@@ -78,54 +78,54 @@ public class example extends Application {
                     return;
                 }
                 
-            	if(name.equals(nameField.getText())&&pass.contentEquals(passwordField.getText())) {    		
-            		showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Registration Successful!", "Welcome " + nameField.getText());
-          		primaryStage.setScene(scene2);
-            	}
-            		else
-            		  showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Form Error!", "Incorrect username and/or password");
+                if(name.equals(nameField.getText())&&pass.contentEquals(passwordField.getText())) {         
+                    showAlert(Alert.AlertType.CONFIRMATION, gridPane.getScene().getWindow(), "Registration Successful!", "Welcome " + nameField.getText());
+                primaryStage.setScene(scene2);
+                }
+                    else
+                      showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Form Error!", "Incorrect username and/or password");
                 return;
-            	
+                
             }
         });
         // Create a scene with registration form grid pane as the root node
         Scene scene = new Scene(gridPane, 800, 500);
         Button button1= new Button("Logout");
-    	gridPane2.add(button1, 0, 0);
-    	button1.setOnAction(e -> primaryStage.setScene(scene)); 
-        // Set the scene in primary stage	
+        gridPane2.add(button1, 0, 0);
+        button1.setOnAction(e -> primaryStage.setScene(scene)); 
+        // Set the scene in primary stage   
         Button button2= new Button("Add New Crop Details");
         //button2.setPrefSize(10,300);
-    	gridPane2.add(button2, 0, 1);
-    	button2.setOnAction(new EventHandler<ActionEvent>(){
-    		public void handle(ActionEvent event) {
-    			/*Text TextResponse=new Text();
-    			gridPane2.add(TextResponse, 3, 3);
-    			TextResponse.setText("Something");*/
-    			Text cropLabel=new Text("Crop Name: ");
-    			TextField crop=new TextField();
-    			Text areaLabel=new Text("Area Size: ");
-    			TextField area=new TextField();
-    			Text yeildLabel=new Text("Previous Yield: ");
-    			TextField yield=new TextField();
-    			gridPane3.add(cropLabel, 0, 0);
-    			gridPane3.add(crop, 1, 0);
-    			gridPane3.add(areaLabel, 0, 1);
-    			gridPane3.add(area, 1, 1);
-    			gridPane3.add(yeildLabel, 0, 2);
-    			gridPane3.add(yield, 1, 2);
-    	        Button button3= new Button("Submit Data");
-    	        gridPane3.add(button3, 1, 3);
-    	        button3.setOnAction(new EventHandler<ActionEvent>(){
-    	    		public void handle(ActionEvent event2) {
-    	    			showAlert(Alert.AlertType.INFORMATION, gridPane.getScene().getWindow(), "Submission Success", "Crop Details Have Been Added");
-    	    			primaryStage.setScene(scene2);
-    	    		}
-    	        });
-    			Scene scene3=new Scene(gridPane3,800,500);
-    			primaryStage.setScene(scene3);		
-    		}
-    	});
+        gridPane2.add(button2, 0, 1);
+        button2.setOnAction(new EventHandler<ActionEvent>(){
+            public void handle(ActionEvent event) {
+                /*Text TextResponse=new Text();
+                gridPane2.add(TextResponse, 3, 3);
+                TextResponse.setText("Something");*/
+                Text cropLabel=new Text("Crop Name: ");
+                TextField crop=new TextField();
+                Text areaLabel=new Text("Area Size: ");
+                TextField area=new TextField();
+                Text yeildLabel=new Text("Previous Yield: ");
+                TextField yield=new TextField();
+                gridPane3.add(cropLabel, 0, 0);
+                gridPane3.add(crop, 1, 0);
+                gridPane3.add(areaLabel, 0, 1);
+                gridPane3.add(area, 1, 1);
+                gridPane3.add(yeildLabel, 0, 2);
+                gridPane3.add(yield, 1, 2);
+                Button button3= new Button("Submit Data");
+                gridPane3.add(button3, 1, 3);
+                button3.setOnAction(new EventHandler<ActionEvent>(){
+                    public void handle(ActionEvent event2) {
+                        showAlert(Alert.AlertType.INFORMATION, gridPane.getScene().getWindow(), "Submission Success", "Crop Details Have Been Added");
+                        primaryStage.setScene(scene2);
+                    }
+                });
+                Scene scene3=new Scene(gridPane3,800,500);
+                primaryStage.setScene(scene3);      
+            }
+        });
 
         primaryStage.setScene(scene);
         
@@ -166,12 +166,7 @@ public class example extends Application {
         return gridPane;
     }
     
-  /*  private void addButton(GridPane gridPane2)
-    {
-    	Button button1= new Button("Logout");
-    	gridPane2.add(button1, 0, 1);
-    	button1.setOnAction(e -> primaryStage.setScene(scene));   
-    }*/
+  
 
 
     private void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
