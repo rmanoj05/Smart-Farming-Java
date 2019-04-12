@@ -11,16 +11,19 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
-public class farming extends Application {
+public class example extends Application {
 
 	
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Smart Farming");
         GridPane gridPane2 = createRegistrationFormPane();
+        GridPane gridPane3 = createRegistrationFormPane();
+
         Scene scene2= new Scene(gridPane2,800,500);
         // Create the registration form grid pane
         GridPane gridPane = createRegistrationFormPane();
@@ -88,9 +91,42 @@ public class farming extends Application {
         // Create a scene with registration form grid pane as the root node
         Scene scene = new Scene(gridPane, 800, 500);
         Button button1= new Button("Logout");
-    	gridPane2.add(button1, 0, 1);
+    	gridPane2.add(button1, 0, 0);
     	button1.setOnAction(e -> primaryStage.setScene(scene)); 
         // Set the scene in primary stage	
+        Button button2= new Button("Add New Crop Details");
+        //button2.setPrefSize(10,300);
+    	gridPane2.add(button2, 0, 1);
+    	button2.setOnAction(new EventHandler<ActionEvent>(){
+    		public void handle(ActionEvent event) {
+    			/*Text TextResponse=new Text();
+    			gridPane2.add(TextResponse, 3, 3);
+    			TextResponse.setText("Something");*/
+    			Text cropLabel=new Text("Crop Name: ");
+    			TextField crop=new TextField();
+    			Text areaLabel=new Text("Area Size: ");
+    			TextField area=new TextField();
+    			Text yeildLabel=new Text("Previous Yield: ");
+    			TextField yield=new TextField();
+    			gridPane3.add(cropLabel, 0, 0);
+    			gridPane3.add(crop, 1, 0);
+    			gridPane3.add(areaLabel, 0, 1);
+    			gridPane3.add(area, 1, 1);
+    			gridPane3.add(yeildLabel, 0, 2);
+    			gridPane3.add(yield, 1, 2);
+    	        Button button3= new Button("Submit Data");
+    	        gridPane3.add(button3, 1, 3);
+    	        button3.setOnAction(new EventHandler<ActionEvent>(){
+    	    		public void handle(ActionEvent event2) {
+    	    			showAlert(Alert.AlertType.INFORMATION, gridPane.getScene().getWindow(), "Submission Success", "Crop Details Have Been Added");
+    	    			primaryStage.setScene(scene2);
+    	    		}
+    	        });
+    			Scene scene3=new Scene(gridPane3,800,500);
+    			primaryStage.setScene(scene3);		
+    		}
+    	});
+
         primaryStage.setScene(scene);
         
         primaryStage.show();
@@ -100,6 +136,8 @@ public class farming extends Application {
     private GridPane createRegistrationFormPane() {
         // Instantiate a new Grid Pane
         GridPane gridPane = new GridPane();
+        gridPane.setStyle("-fx-background-color:  #DAF7A6 ;");
+
 
         // Position the pane at the center of the screen, both vertically and horizontally
         gridPane.setAlignment(Pos.CENTER);
